@@ -1,10 +1,8 @@
 # Cosmic Microwave Background Project
+[![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54)](https://www.python.org/)
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 
 Write-up will go here eventually.
-
-Technologies used (not super verbose, but not not verbose list):
-- Python/Poetry
-- Taskfile
 
 ## Installing development utilities
 To install **[Taskfile](https://taskfile.dev/installation)**, run `brew install go-task` on MacOS. Then, **assuming you have [Homebrew](https://brew.sh/) installed**, run `task init` to install Poetry, or alternatively, run `pipx install poetry`. Instructions to install `pipx` can be widely found on the internet.
