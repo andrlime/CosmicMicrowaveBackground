@@ -1,0 +1,27 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  init:
+    cmds:
+      - brew install pipx
+      - pipx ensurepath
+      - pipx install poetry
+      - poetry install
+  run:
+    cmds:
+      - poetry run python -m src.main -- {{.CLI_ARGS}}
+  format:
+    cmds:
+      - poetry run black --line-length 80 src/
+      - poetry run black --line-length 80 test/
+  lint:
+    cmds:
+      - poetry run pylint --rcfile pylintrc src/
+      - poetry run pylint --rcfile pylintrc tests/
+      - poetry run black --line-length 80 src/ --check
+      - poetry run black --line-length 80 tests/ --check
+  test:
+    cmds:
+      - poetry run python -m pytest
