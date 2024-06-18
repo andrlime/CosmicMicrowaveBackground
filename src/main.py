@@ -1,7 +1,11 @@
-from src.folder.test import hello_world
-
 """
+src.main
+
 Main file
 """
 
-hello_world()
+from src.folder.test import hello_world
+
+
+if __name__ == "__main__":
+    print(hello_world())

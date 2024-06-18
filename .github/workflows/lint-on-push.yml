@@ -1,0 +1,39 @@
+name: "[LINT] Run pylint and black"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["*"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - name: Install Poetry dependencies
+        run: poetry install
+
+      - name: Run pylint on src files
+        run: poetry run pylint --rcfile pylintrc src/
+        
+      - name: Run pylint on test files
+        run: poetry run pylint --rcfile pylintrc tests/
+      
+      - name: Run black on src files
+        run: poetry run black --line-length 80 src/ --check
+      
+      - name: Run black on test files
+        run: poetry run black --line-length 80 tests/ --check

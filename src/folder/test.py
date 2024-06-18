@@ -1,9 +1,12 @@
 """
+src.folder.test
+
 Example module for Poetry
 """
 
+
 def hello_world():
-  """
-  Prints hello world
-  """
-  print("Hello world")
+    """
+    Returns hello world
+    """
+    return "Hello, world!"
