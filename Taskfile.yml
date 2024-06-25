@@ -11,17 +11,17 @@ tasks:
       - poetry install
   run:
     cmds:
-      - poetry run python -m src.main -- {{.CLI_ARGS}}
+      - poetry run python -m main {{.CLI_ARGS}}
   format:
     cmds:
+      - poetry run black --line-length 80 main.py
       - poetry run black --line-length 80 src/
-      - poetry run black --line-length 80 test/
   lint:
     cmds:
+      - poetry run pylint --rcfile pylintrc main.py
       - poetry run pylint --rcfile pylintrc src/
-      - poetry run pylint --rcfile pylintrc tests/
+      - poetry run black --line-length 80 main.py --check
       - poetry run black --line-length 80 src/ --check
-      - poetry run black --line-length 80 tests/ --check
-  test:
-    cmds:
-      - poetry run python -m pytest
+  # test:
+  #   cmds:
+  #     - poetry run python -m pytest

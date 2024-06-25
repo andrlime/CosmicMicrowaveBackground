@@ -20,6 +20,7 @@ polars = "^0.20.31"
 pylint = "^3.2.3"
 black = "^24.4.2"
 pytest = "^8.2.2"
+jupyter = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]
